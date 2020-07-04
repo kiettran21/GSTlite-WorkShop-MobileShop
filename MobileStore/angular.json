@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MobileStore"
+    }
+  },
+  "defaultProject": "MobileStore",
+  "cli": {
+    "analytics": "05b6b7eb-996e-4251-a9e5-98d3264f9304"
+  }
 }
