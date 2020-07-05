@@ -23,11 +23,12 @@ export class LoginComponent implements OnInit {
   login = () => {
     this.authenticationService.login(this.userName, this.password).subscribe(
       (data) => {
+        console.log(data);
         if (data != null && data.username) {
           localStorage.setItem('username', data.username);
           localStorage.setItem('password', data.password);
           console.log('Login Success');
-          //this.router.navigateByUrl('/productlist');
+          this.router.navigateByUrl('/productlist');
         }
         else {
           console.log('Login fail');
@@ -36,5 +37,4 @@ export class LoginComponent implements OnInit {
       (error) => console.error(error)
     )
   }
-
 }
