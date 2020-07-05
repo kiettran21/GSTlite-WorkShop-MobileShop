@@ -20,10 +20,11 @@ import lombok.Data;
 @Entity
 @Table(name = "products")
 public class Product implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    
+
     private String name;
 
     public long getId() {
@@ -82,12 +83,12 @@ public class Product implements Serializable {
         this.category = category;
     }
 
-    public String getCondition() {
-        return condition;
+    public String getConditionProduct() {
+        return conditionProduct;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setConditionProduct(String conditionProduct) {
+        this.conditionProduct = conditionProduct;
     }
 
     public int getQuantity() {
@@ -97,20 +98,19 @@ public class Product implements Serializable {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
+
     private String imageUrl;
-    
+
     private double price;
-    
+
     private String description;
-    
+
     private String manufacturer;
-    
+
     private String category;
-    
-    private String condition;
-    
+
+    private String conditionProduct;
+
     private int quantity;
-    
-    
+
 }

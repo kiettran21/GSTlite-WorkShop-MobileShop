@@ -66,7 +66,7 @@ public class ProductController {
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found on " + productId));
         
         product.setCategory(productDetails.getCategory());
-        product.setCondition(productDetails.getCondition());
+        product.setConditionProduct(productDetails.getConditionProduct());
         product.setDescription(productDetails.getDescription());
         product.setImageUrl(productDetails.getImageUrl());
         product.setManufacturer(productDetails.getManufacturer());
