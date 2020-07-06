@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProductlistServices } from './productlist.service'
 import { Product } from '../models/Product'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productlist',
@@ -13,7 +14,7 @@ export class ProductlistComponent implements OnInit {
   private services = new ProductlistServices();
   public productList = new Array<Product>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.getProductList();
@@ -35,6 +36,15 @@ export class ProductlistComponent implements OnInit {
       product.quantity = list[i].quantity;
 
       this.productList.push(product);
+    }
+  }
+
+  public getNavigation(link, id) {
+    if (id === '') {
+      this.router.navigate([link]);
+    }
+    else {
+      this.router.navigate([link + '/' + id]);
     }
   }
 }
