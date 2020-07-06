@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   @Input() cart = '';
   @Input() role = '';
 
-  public numberOfProductsInCart=0;
+  public numberOfProductsInCart = 0;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -26,8 +26,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.initLoad();
-    this.numberOfProductsInCart=this.numberOfProductsInCart;
-    
+    this.numberOfProductsInCart = this.numberOfProductsInCart;
+
   }
 
   public initLoad = () => {
@@ -64,5 +64,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/addproduct']);
   }
 
-  
+  public updateCart() {
+    this.numberOfProductsInCart += 1;
+  }
 }

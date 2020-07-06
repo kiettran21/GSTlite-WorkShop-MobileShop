@@ -50,6 +50,6 @@ export class ProductlistComponent implements OnInit {
   }
 
   public orderButtonClicked(id) {
-    this.router.navigate(['']);
+    
   }
 }

@@ -5,7 +5,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 -->
 
-<app-header title="Product List" subtitle="" button=""></app-header>
+<app-header title="Product List" subtitle="" button="" #headerCaller></app-header>
 <div class="container">
     <div class="row">
         <div *ngFor='let product of productList'>
@@ -23,8 +23,9 @@
                             <h6 class="font-weight-bold my-2"> {{product.quantity}} Units in stock </h6>
                             <br>
                             <button style="height:40px;width: 90px; background-color: blue;color:white;border-radius: 5px;border: none;" (click)="getNavigation('/productdetail', product.id)">Detail</button>
-                            <button style="height:40px;width: 90px; background-color: yellow;color:rgb(0, 0, 0);border-radius: 5px;border: none;" (click)="orderButtonClicked(product.id)">Order now</button>
-                           
+                            <button style="height:40px;width: 90px; background-color: yellow;color:rgb(0, 0, 0);border-radius: 5px;border: none;" (click)="headerCaller.updateCart()">Order now</button>
+                            
+                        
                         </div>
                     </div> <!-- End -->
                 </div> 
