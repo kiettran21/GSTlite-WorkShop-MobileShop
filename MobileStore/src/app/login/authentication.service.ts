@@ -32,7 +32,7 @@ export class AuthenticationService {
    return this.http
    .post<any>(loginUrl, {
    username,
-   password,
+   password
    })
    .pipe(
    map((user) => {
@@ -42,6 +42,7 @@ export class AuthenticationService {
    newUser.id = user.id;
    newUser.username = user.username;
    newUser.password = user.password;
+   newUser.role = user.role;
    this.currentUserSubject.next(newUser);
    return user;
    } else {

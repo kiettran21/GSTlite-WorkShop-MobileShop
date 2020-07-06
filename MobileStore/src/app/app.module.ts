@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
     HeaderComponent,
     ProductComponent,
     ProductlistComponent,
-    ProductdetailComponent
+    ProductdetailComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

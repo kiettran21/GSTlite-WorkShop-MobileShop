@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product } from '../models/Product';
+import { AuthenticationService } from '../login/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -18,9 +20,22 @@ export class ProductComponent implements OnInit {
   public conditionProduct: String;
   public quantity: String;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private authenticationService: AuthenticationService,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.checkRole();
+  }
+
+  public checkRole = () => {
+    const currentUser = this.authenticationService.currentUserValue;
+    console.log(currentUser)
+    if (currentUser) {
+      if (currentUser.role === 'admin') return;
+    }
+   
+    this.router.navigateByUrl('/');
   }
 
   public createProduct = async () => {
@@ -34,8 +49,6 @@ export class ProductComponent implements OnInit {
       product.manufacturer = this.manufacturer;
       product.price = this.price;
       product.quantity = this.quantity;
-
-      console.log("Test.....");
 
       const result = await this.productService.addProduct(product);
 

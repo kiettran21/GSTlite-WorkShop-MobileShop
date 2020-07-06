@@ -5,12 +5,30 @@ height: 25vh;background-color: rgb(238, 238, 238);" >
 <div class="container">
 <div class="row">
 <div class="col">
-<h1 style="font-size: 5rem; padding-top: 50px;">
+<h1 style="font-size: 4rem; padding-top: 50px;">
 {{ title }}
 </h1>
 <span class="lead">{{ subtitle }}</span>
 </div>
 <div class="col text-right">
+    <button
+    *ngIf="role === 'admin'"
+    type="button"
+    style="margin-top: 30px;"
+    class="btn btn-success"
+    (click)='onProductList()'
+    >
+    Add Products
+    </button>
+<button
+*ngIf="button === 'login'"
+type="button"
+style="margin-top: 30px;"
+class="btn btn-danger"
+(click)='onLogin()'
+>
+login
+</button>
 <button
 *ngIf="button === 'logout'"
 type="button"
@@ -21,14 +39,25 @@ class="btn btn-danger"
 logout
 </button>
 <button
-*ngIf="button === 'view-cart'"
+*ngIf="cart === 'view-cart'"
 type="button"
 style="margin-top: 30px;"
 class="btn btn-light"
 routerLink="/cart"
 >
 <i class="fas fa-shoppingcart" style="transform: rotateY(180deg) !important;" ></i>
-view cart
+View Cart
+</button>
+
+<button
+*ngIf="cart === 'view-cart'"
+type="button"
+style="margin-top: 30px;"
+class="btn btn-light"
+routerLink="/cart"
+>
+<i class="fas fa-shoppingcart" style="transform: rotateY(180deg) !important;" ></i>
+{{numberOfProductsInCart}}
 </button>
 </div>
 </div>

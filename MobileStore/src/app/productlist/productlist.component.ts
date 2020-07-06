@@ -13,6 +13,7 @@ export class ProductlistComponent implements OnInit {
 
   private services = new ProductlistServices();
   public productList = new Array<Product>();
+  
 
   constructor(private router: Router) { }
 
@@ -22,8 +23,8 @@ export class ProductlistComponent implements OnInit {
 
   public getProductList = async () => {
     const list = await this.services.getProductList();
-    
-    for (let i = 0;i < list.length; i++) {
+
+    for (let i = 0; i < list.length; i++) {
       let product = new Product();
       product.id = list[i].id;
       product.name = list[i].name;
@@ -46,5 +47,9 @@ export class ProductlistComponent implements OnInit {
     else {
       this.router.navigate([link + '/' + id]);
     }
+  }
+
+  public orderButtonClicked(id) {
+    this.router.navigate(['']);
   }
 }

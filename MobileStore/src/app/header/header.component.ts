@@ -14,6 +14,10 @@ export class HeaderComponent implements OnInit {
   @Input() title = '';
   @Input() subtitle = '';
   @Input() button = '';
+  @Input() cart = '';
+  @Input() role = '';
+
+  public numberOfProductsInCart=0;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -21,6 +25,30 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.initLoad();
+    this.numberOfProductsInCart=this.numberOfProductsInCart;
+    
+  }
+
+  public initLoad = () => {
+    const currentUser = this.authenticationService.currentUserValue;
+    console.log(currentUser)
+    if (currentUser) {
+      //Nếu admin chỉ xuất hiện add product, logout
+      this.button = 'logout';
+      if (currentUser.role === 'admin') {
+        this.role = 'admin';
+        this.cart = '';
+      }
+      else {
+        this.role = 'customer';
+        this.cart = 'view-cart';
+      }
+    }
+    else {
+      this.button = 'login';
+      this.cart = 'view-cart';
+    }
   }
 
   public onLogout = () => {
@@ -28,4 +56,13 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  public onLogin = () => {
+    this.router.navigate(['/login']);
+  }
+
+  public onProductList = () => {
+    this.router.navigate(['/addproduct']);
+  }
+
+  
 }
