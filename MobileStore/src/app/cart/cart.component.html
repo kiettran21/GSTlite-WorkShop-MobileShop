@@ -15,12 +15,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let product of orderedProducts'>
+                        <tr *ngFor='let product of orderedProducts; let i = index;'>
                             <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
                             <td>{{product.name}}</td>
                             <td>{{product.quantity}}</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">{{product.price}} €</td>
+                            <td><input class="form-control" type="text" value="{{getQuantity(product.id)}}" /></td>
+                            <td class="text-right">{{product.price}} $</td>
                             <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                         </tr>
                         
