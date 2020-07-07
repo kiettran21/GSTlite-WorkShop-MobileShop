@@ -23,7 +23,7 @@
                             <h6 class="font-weight-bold my-2"> {{product.quantity}} Units in stock </h6>
                             <br>
                             <button style="height:40px;width: 90px; background-color: blue;color:white;border-radius: 5px;border: none;" (click)="getNavigation('/productdetail', product.id)">Detail</button>
-                            <button style="height:40px;width: 90px; background-color: yellow;color:rgb(0, 0, 0);border-radius: 5px;border: none;" (click)="headerCaller.updateCart()">Order now</button>
+                            <button style="height:40px;width: 90px; background-color: yellow;color:rgb(0, 0, 0);border-radius: 5px;border: none;" (click)="headerCaller.updateCart(product, 1)">Order now</button>
                             
                         
                         </div>

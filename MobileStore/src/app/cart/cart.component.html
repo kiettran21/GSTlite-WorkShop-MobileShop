@@ -1,67 +1,50 @@
-<div class="container">
-    <div class="row" style="border-bottom: 1px solid black;">
-        
-            <div class="col-6" style="border-bottom: 1px solid black;">
-                <button>Lâm xinh đẹp</button>
+<app-header title="Your Cart" subtitle="" button="" #headerCaller></app-header>
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Available</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-right">Price</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let product of orderedProducts; let i = index;'>
+                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.quantity}}</td>
+                            <td><input class="form-control" type="text" value="{{getQuantity(product.id)}}" /></td>
+                            <td class="text-right">{{product.price}} $</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>{{getTotalPrice()}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-6" style="border-bottom: 1px solid black;text-align: right;"> 
-                <button >Chu đẹp trai</button>
+        </div>
+        <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12  col-md-6">
+                    <button class="btn btn-block btn-light">Continue Shopping</button>
+                </div>
+                <div class="col-sm-12 col-md-6 text-right">
+                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                </div>
             </div>
-        
-        <DIV class="col-4">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Action</h1>
-        </DIV>
+        </div>
     </div>
 </div>
-<div class="container" style="border-bottom: 1px solid black;border-top: 1px solid black;">
-    <div class=" row">
-        <DIV class="col-4">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <button>remote</button>
-        </DIV>
-    </div>
-</div>
-<div class="container" style="border-bottom: 1px solid black;border-top: 1px solid black;">
-    <div class=" row">
-        <DIV class="col-4">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <h1>Product</h1>
-        </DIV>
-        <DIV class="col-2">
-            <button>remote</button>
-        </DIV>
-    </div>
-</div>
-<div class="container" style=" padding-top: 20px;"><button>Continue shopping 
-</button></div>

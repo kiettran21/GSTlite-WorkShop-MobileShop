@@ -48,8 +48,4 @@ export class ProductlistComponent implements OnInit {
       this.router.navigate([link + '/' + id]);
     }
   }
-
-  public orderButtonClicked(id) {
-    
-  }
 }

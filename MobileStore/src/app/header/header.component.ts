@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
   @Input() role = '';
 
   public numberOfProductsInCart = 0;
+  
+  public productsCart = []
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -26,8 +28,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.initLoad();
-    this.numberOfProductsInCart = this.numberOfProductsInCart;
-
+    this.numberOfProductsInCart = parseInt(localStorage.getItem('numberOfProductsInCart')) || 0;
+    this.productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
   }
 
   public initLoad = () => {
@@ -64,7 +66,17 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/addproduct']);
   }
 
-  public updateCart() {
-    this.numberOfProductsInCart += 1;
+  public updateCart(product, quantity = 0) {
+    if (!this.productsCart.some(el => el.id === product.id)) {
+      this.numberOfProductsInCart += 1;
+      this.productsCart.push(product);
+      localStorage.setItem('numberOfProductsInCart', this.numberOfProductsInCart.toString());
+    }
+
+    let quantityInSession = parseInt(localStorage.getItem(product.id.toString())) || 0;
+    quantityInSession += quantity;
+    
+    localStorage.setItem(product.id.toString(), quantityInSession.toString());
+    localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
   }
 }
