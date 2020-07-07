@@ -33,4 +33,14 @@ export class CartComponent implements OnInit {
   public getQuantity(id) {
     return parseInt(localStorage.getItem(id.toString()));
   }
+
+  public getTotalPrice() {
+    let total = 0;
+
+    for (let i = 0; i < this.orderedProducts.length; i++) {
+      total += Number(this.orderedProducts[i].price) * Number(this.getQuantity(this.orderedProducts[i].id));
+    }
+
+    return total;
+  } 
 }
