@@ -53,6 +53,9 @@ export class ProductComponent implements OnInit {
       const result = await this.productService.addProduct(product);
 
       console.log(result);
+      alert("Thêm thành công");
+      this.router.navigateByUrl('/')
+
     }
     catch (error) {
       console.log(error);
