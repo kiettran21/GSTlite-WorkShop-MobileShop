@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
   public category: String;
   public conditionProduct: String;
   public quantity: String;
+  public image: String;
 
   constructor(private productService: ProductService,
     private authenticationService: AuthenticationService,
