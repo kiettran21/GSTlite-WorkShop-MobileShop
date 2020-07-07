@@ -16,7 +16,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor='let product of orderedProducts; let i = index;'>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                            <td><img src={{product.imageUrl}} width="50px" height="50px"/> </td>
                             <td>{{product.name}}</td>
                             <td>{{product.quantity}}</td>
                             <td><input class="form-control" type="text" value="{{getQuantity(product.id)}}" /></td>
@@ -39,11 +39,15 @@
         <div class="col mb-2">
             <div class="row">
                 <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light">Continue Shopping</button>
+                    <a class="btn btn-block btn-light" routerLink="/" type="submit">Continue Shopping</a>
                 </div>
                 <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                    <button class="btn btn-lg btn-block btn-success text-uppercase" (click)="headerCaller.checkoutCart()">Checkout</button>
                 </div>
+
+
+
+
             </div>
         </div>
     </div>

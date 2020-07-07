@@ -79,4 +79,14 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem(product.id.toString(), quantityInSession.toString());
     localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
   }
+
+  public checkoutCart() {
+    this.numberOfProductsInCart =  0;
+    this.productsCart = [];
+
+    localStorage.setItem('numberOfProductsInCart', this.numberOfProductsInCart.toString());
+    localStorage.setItem('productsCart', JSON.stringify(this.productsCart));
+
+    this.router.navigateByUrl('/');
+  }
 }
